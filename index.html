@@ -1,296 +1,37 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blue World — Markus Stormvald</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-    font-family:Arial, sans-serif;
-    color:#f5f7fb;
-    background:
-        linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.92)),
-        url("https://markus0975.github.io/img/map.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-}
-
-header{
-    padding:90px 20px 50px;
-    text-align:center;
-}
-
-h1{
-    font-size:4rem;
-    letter-spacing:4px;
-    text-transform:uppercase;
-}
-
-.subtitle{
-    margin-top:15px;
-    font-size:1.2rem;
-    color:#d8e6ff;
-}
-
-nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    padding:20px;
-    background:rgba(0,0,0,.35);
-    backdrop-filter:blur(8px);
-    position:sticky;
-    top:0;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:10px 16px;
-    border-radius:999px;
-    background:rgba(255,255,255,.12);
-}
-
-nav a:hover{background:#2f9cff}
-
-main{
-    max-width:1200px;
-    margin:auto;
-    padding:45px 25px;
-}
-
-.hero{
-    background:rgba(10,18,32,.82);
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:24px;
-    padding:35px;
-    margin-bottom:35px;
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
-}
-
-.hero h2{
-    font-size:2rem;
-    margin-bottom:15px;
-    color:#86d9ff;
-}
-
-.hero p{
-    line-height:1.7;
-    color:#d7deea;
-    max-width:850px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:24px;
-}
-
-.card{
-    background:rgba(14,22,38,.86);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:20px;
-    padding:26px;
-    min-height:210px;
-    transition:.2s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#62caff;
-    box-shadow:0 15px 40px rgba(0,0,0,.4);
-}
-
-.card h3{
-    font-size:1.45rem;
-    margin-bottom:14px;
-    color:#8bdcff;
-}
-
-.card p{
-    color:#d2d9e4;
-    line-height:1.55;
-}
-
-.card a{
-    display:inline-block;
-    margin-top:18px;
-    padding:10px 18px;
-    border-radius:10px;
-    background:#2f9cff;
-    color:white;
-    text-decoration:none;
-}
-
-.card a:hover{background:#58b7ff}
-
-.featured{
-    margin-top:40px;
-}
-
-.featured h2{
-    margin-bottom:20px;
-    color:#86d9ff;
-}
-
-.characters{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
-}
-
-.character{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:16px;
-    padding:16px;
-    text-align:center;
-}
-
-.character img{
-    width:100%;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    border-radius:14px;
-    margin-bottom:12px;
-    background:#111827;
-}
-
-.character a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-footer{
-    text-align:center;
-    padding:60px 20px;
-    color:#aeb8c7;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>Blue World</h1>
-    <p class="subtitle">Encyclopédie officielle de l’univers de Markus Stormvald</p>
-</header>
-
-<nav>
-    <a href="index.html">Accueil</a>
-    <a href="characters/">Personnages</a>
-    <a href="world/">Monde</a>
-    <a href="magic/">Magie</a>
-    <a href="academy/">Académie</a>
-    <a href="bestiary/">Bestiaire</a>
-    <a href="maps/">Cartes</a>
-</nav>
-
-<main>
-
-<section class="hero">
-    <h2>Bienvenue dans Blue World</h2>
-    <p>
-        Retrouvez ici les personnages, royaumes, familles, éléments, compagnons,
-        familiers, artefacts, tours, académies et lieux importants de l’univers
-        de Markus Stormvald.
-    </p>
-</section>
-
-<section class="grid">
-
-    <article class="card">
-        <h3>Personnages</h3>
-        <p>Fiches complètes, familles, couples, éléments, compagnons et liens entre personnages.</p>
-        <a href="characters/">Explorer</a>
-    </article>
-
-    <article class="card">
-        <h3>Monde</h3>
-        <p>Les cinq grandes régions, leurs souverains, leurs cultures et leurs territoires.</p>
-        <a href="world/">Explorer</a>
-    </article>
-
-    <article class="card">
-        <h3>Magie</h3>
-        <p>Mana, éveils, éléments, perles, tours, donjons, artefacts et règles du système magique.</p>
-        <a href="magic/">Explorer</a>
-    </article>
-
-    <article class="card">
-        <h3>Académie</h3>
-        <p>Élèves, professeurs, cours, classements, entraînements et vie scolaire.</p>
-        <a href="academy/">Explorer</a>
-    </article>
-
-    <article class="card">
-        <h3>Bestiaire</h3>
-        <p>Familiers, compagnons élémentaires, créatures légendaires et monstres.</p>
-        <a href="bestiary/">Explorer</a>
-    </article>
-
-    <article class="card">
-        <h3>Cartes</h3>
-        <p>Carte générale de Blue World, royaumes, académies, tours et lieux majeurs.</p>
-        <a href="maps/">Explorer</a>
-    </article>
-
-</section>
-
 <section class="featured">
-    <h2>Personnages principaux</h2>
+    <h2>Personnages du Tome 1</h2>
 
     <div class="characters">
 
         <div class="character">
-            <img src="https://markus0975.github.io/img/Markus.png" alt="Markus Stormvald">
+            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Markus.png" alt="Markus Stormvald">
             <a href="characters/markus.html">Markus Stormvald</a>
         </div>
 
         <div class="character">
-            <img src="https://markus0975.github.io/img/Liora.png" alt="Liora Aranval">
+            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Liora.png" alt="Liora Aranval">
             <a href="characters/liora.html">Liora Aranval</a>
         </div>
 
         <div class="character">
-            <img src="https://markus0975.github.io/img/Soren.png" alt="Soren Skarsen">
-            <a href="characters/soren.html">Soren Skarsen</a>
-        </div>
-
-	<div class="character">
-            <img src="https://markus0975.github.io/img/Hiro.png" alt="Hiro Kazehito">
+            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Hiro.png" alt="Hiro Kazehito">
             <a href="characters/hiro.html">Hiro Kazehito</a>
         </div>
 
         <div class="character">
-            <img src="https://markus0975.github.io/img/Odin.png" alt="Odin Stormvald">
+            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Odin.png" alt="Odin Stormvald">
             <a href="characters/odin.html">Odin Stormvald</a>
         </div>
 
         <div class="character">
-            <img src="https://markus0975.github.io/img/Isabella.png" alt="Isabella Del Fuego">
+            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Isabella.png" alt="Isabella Del Fuego">
             <a href="characters/isabella.html">Isabella Del Fuego</a>
         </div>
 
         <div class="character">
-            <img src="https://markus0975.github.io/img/Elisa.png" alt="Elisa Vulcani">
+            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Elisa.png" alt="Elisa Vulcani">
             <a href="characters/elisa.html">Elisa Vulcani</a>
         </div>
 
     </div>
 </section>
-
-</main>
-
-<footer>
-    © 2026 Blue World — Markus Stormvald
-</footer>
-
-</body>
-</html>
