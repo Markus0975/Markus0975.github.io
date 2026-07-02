@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blue World — Les Éveillés</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+
+--blue:#58b7ff;
+--blue2:#8bdcff;
+--text:#f5f7fb;
+--panel:rgba(14,22,38,.88);
+--border:rgba(255,255,255,.10);
+
+}
+
+body{
+
+font-family:Arial,sans-serif;
+
+background:
+linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.94)),
+url("https://raw.githubusercontent.com/Markus0975/img/main/map.jpg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+color:white;
+
+}
+
+header{
+
+padding:80px 20px 40px;
+text-align:center;
+
+}
+
+h1{
+
+font-size:clamp(2.5rem,6vw,4rem);
+letter-spacing:4px;
+text-transform:uppercase;
+
+}
+
+.subtitle{
+
+margin-top:12px;
+color:#dbe8ff;
+
+}
+
+nav{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+
+padding:18px;
+
+background:rgba(0,0,0,.35);
+
+backdrop-filter:blur(8px);
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+
+padding:10px 16px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.12);
+
+}
+
+nav a:hover{
+
+background:#2f9cff;
+
+}
+
+main{
+
+width:min(1300px,95%);
+margin:auto;
+
+padding:50px 0;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
+}
+
+.person{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+padding:15px;
+
+border-radius:18px;
+
+background:var(--panel);
+
+border:1px solid var(--border);
+
+text-decoration:none;
+
+color:white;
+
+transition:.2s;
+
+}
+
+.person:hover{
+
+background:rgba(88,183,255,.18);
+
+transform:translateY(-3px);
+
+}
+
+.person img{
+
+width:95px;
+height:120px;
+
+object-fit:cover;
+
+border-radius:12px;
+
+}
+
+.person h2{
+
+font-size:1.25rem;
+
+margin-bottom:6px;
+
+color:var(--blue2);
+
+}
+
+.person p{
+
+color:#d7d7d7;
+
+font-size:.95rem;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Les Éveillés</h1>
+
+<div class="subtitle">
+
+Les treize éveillés connus
+
+</div>
+
+</header>
+
+<nav>
+
+<a href="index.html">Accueil</a>
+
+<a href="personnages.html">Personnages</a>
+
+<a href="monde.html">Monde</a>
+
+<a href="magie.html">Magie</a>
+
+<a href="academie.html">Académie</a>
+
+<a href="bestiaire.html">Bestiaire</a>
+
+<a href="cartes.html">Cartes</a>
+
+</nav>
+
+<main>
+
+<div class="grid">
+
+<a class="person" href="markus.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Markus.png">
+<div><h2>Markus Stormvald</h2></div>
+</a>
+
+<a class="person" href="liora.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Liora.png">
+<div><h2>Liora Aranval</h2></div>
+</a>
+
+<a class="person" href="akira.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Akira.png">
+<div><h2>Akira Kazehaya</h2></div>
+</a>
+
+<a class="person" href="yasuko.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Yasuko.png">
+<div><h2>Yasuko Takamura</h2></div>
+</a>
+
+<a class="person" href="sven.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Sven.png">
+<div><h2>Sven Nordström</h2></div>
+</a>
+
+<a class="person" href="soren.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Soren.png">
+<div><h2>Soren Skarsen</h2></div>
+</a>
+
+<a class="person" href="olga.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Olga.png">
+<div><h2>Olga Halvorsen</h2></div>
+</a>
+
+<a class="person" href="arthur.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Arthur.png">
+<div><h2>Arthur Breton</h2></div>
+</a>
+
+<a class="person" href="lucia.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Lucia.png">
+<div><h2>Lucia Bellaforge</h2></div>
+</a>
+
+<a class="person" href="edric.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Edric.png">
+<div><h2>Edric Valmont</h2></div>
+</a>
+
+<a class="person" href="esmeralda.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Esmeralda.png">
+<div><h2>Esmeralda Candela</h2></div>
+</a>
+
+<a class="person" href="zahra.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Zahra.png">
+<div><h2>Zahra Solis</h2></div>
+</a>
+
+<a class="person" href="diego.html">
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Diego.png">
+<div><h2>Diego Montoro</h2></div>
+</a>
+
+</div>
+
+</main>
+
+</body>
+
+</html>

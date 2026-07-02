@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blue World — Élémentaires</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --blue:#58b7ff;
+    --blue-soft:#8bdcff;
+    --gold:#f2c66d;
+    --text:#f5f7fb;
+    --muted:#d2d9e4;
+    --panel:rgba(14,22,38,.88);
+    --border:rgba(255,255,255,.10);
+}
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    background:
+    linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.94)),
+    url("https://raw.githubusercontent.com/Markus0975/img/main/map.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:white;
+
+}
+
+header{
+
+    padding:80px 20px 40px;
+    text-align:center;
+
+}
+
+h1{
+
+    font-size:clamp(2.5rem,6vw,4rem);
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+}
+
+.subtitle{
+
+    margin-top:12px;
+    color:#dbe8ff;
+
+}
+
+nav{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+    padding:18px;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(8px);
+
+}
+
+nav a{
+
+    color:white;
+    text-decoration:none;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+}
+
+nav a:hover{
+
+    background:#2f9cff;
+
+}
+
+main{
+
+    width:min(1300px,95%);
+    margin:auto;
+
+    padding:50px 0;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:28px;
+
+}
+
+.card{
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#58b7ff;
+
+}
+
+.card img{
+
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.info{
+
+    padding:18px;
+
+}
+
+.info h2{
+
+    color:var(--blue-soft);
+
+    margin-bottom:12px;
+
+    font-size:1.5rem;
+
+}
+
+.info table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.info td{
+
+    padding:7px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    color:var(--muted);
+
+}
+
+.info td:first-child{
+
+    color:white;
+    width:95px;
+
+}
+
+.info a{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    color:white;
+
+    text-decoration:none;
+
+    background:#2f9cff;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+}
+
+.info a:hover{
+
+    background:#58b7ff;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Élémentaires</h1>
+
+<div class="subtitle">
+
+Compagnons élémentaires connus
+
+</div>
+
+</header>
+
+<nav>
+
+<a href="index.html">Accueil</a>
+
+<a href="personnages.html">Personnages</a>
+
+<a href="monde.html">Monde</a>
+
+<a href="magie.html">Magie</a>
+
+<a href="academie.html">Académie</a>
+
+<a href="bestiaire.html">Bestiaire</a>
+
+<a href="cartes.html">Cartes</a>
+
+</nav>
+
+<main>
+
+<div class="grid">
+
+<!-- Fenrir -->
+
+<div class="card">
+
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Loulou.png">
+
+<div class="info">
+
+<h2>Fenrir</h2>
+
+<table>
+
+<tr><td>Type</td><td>Loup</td></tr>
+
+<tr><td>Élément</td><td>Glace</td></tr>
+
+<tr><td>Maître</td><td>Markus Stormvald</td></tr>
+
+</table>
+
+<a href="fenrir.html">Voir la fiche</a>
+
+</div>
+
+</div>
+
+<!-- Piou -->
+
+<div class="card">
+
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Piou.png">
+
+<div class="info">
+
+<h2>Piou</h2>
+
+<table>
+
+<tr><td>Type</td><td>Phoenix</td></tr>
+
+<tr><td>Élément</td><td>Feu</td></tr>
+
+<tr><td>Maître</td><td>Markus Stormvald</td></tr>
+
+</table>
+
+<a href="piou.html">Voir la fiche</a>
+
+</div>
+
+</div>
+
+<!-- Aeris -->
+
+<div class="card">
+
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Aeris.png">
+
+<div class="info">
+
+<h2>Aeris</h2>
+
+<table>
+
+<tr><td>Type</td><td>Sylphe</td></tr>
+
+<tr><td>Élément</td><td>Vent</td></tr>
+
+<tr><td>Maître</td><td>Markus Stormvald</td></tr>
+
+</table>
+
+<a href="aeris.html">Voir la fiche</a>
+
+</div>
+
+</div>
+
+<!-- Lumos -->
+
+<div class="card">
+
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Lumos.png">
+
+<div class="info">
+
+<h2>Lumos</h2>
+
+<table>
+
+<tr><td>Type</td><td>Esprit de Lumière</td></tr>
+
+<tr><td>Élément</td><td>Lumière</td></tr>
+
+<tr><td>Maître</td><td>Markus Stormvald</td></tr>
+
+</table>
+
+<a href="lumos.html">Voir la fiche</a>
+
+</div>
+
+</div>
+
+<!-- Boue -->
+
+<div class="card">
+
+<img src="https://raw.githubusercontent.com/Markus0975/img/main/Boue.png">
+
+<div class="info">
+
+<h2>Boue</h2>
+
+<table>
+
+<tr><td>Type</td><td>Golem</td></tr>
+
+<tr><td>Élément</td><td>Terre</td></tr>
+
+<tr><td>Maître</td><td>Markus Stormvald</td></tr>
+
+</table>
+
+<a href="boue.html">Voir la fiche</a>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</body>
+</html>
