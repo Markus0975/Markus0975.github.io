@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue World — Personnages</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+    --blue:#58b7ff;
+    --blue-soft:#8bdcff;
+    --gold:#f2c66d;
+    --text:#f5f7fb;
+    --muted:#d2d9e4;
+    --panel:rgba(14,22,38,.88);
+    --panel-light:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.12);
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial, sans-serif;
+    color:var(--text);
+    background:
+        linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.94)),
+        url("https://raw.githubusercontent.com/Markus0975/img/main/map.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+header{padding:70px 20px 34px;text-align:center}
+h1{font-size:clamp(2.2rem,6vw,4.2rem);letter-spacing:4px;text-transform:uppercase;text-shadow:0 8px 28px rgba(0,0,0,.65)}
+.subtitle{margin-top:12px;font-size:1.12rem;color:#d8e6ff}
+
+nav{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:12px;padding:18px;
+    background:rgba(0,0,0,.36);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10;
+    border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)
+}
+nav a{color:white;text-decoration:none;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.12);transition:.2s}
+nav a:hover, nav a.active{background:#2f9cff;transform:translateY(-1px)}
+
+main{max-width:1180px;margin:auto;padding:38px 24px 50px}
+.intro{
+    background:rgba(10,18,32,.84);border:1px solid var(--border);border-radius:24px;
+    padding:28px;margin-bottom:30px;box-shadow:0 20px 60px rgba(0,0,0,.45)
+}
+.intro h2{font-size:1.9rem;margin-bottom:12px;color:var(--blue-soft)}
+.intro p{line-height:1.65;color:#d7deea;max-width:900px}
+
+.quick-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.quick-links a{color:white;text-decoration:none;padding:9px 13px;border-radius:10px;background:rgba(47,156,255,.35);border:1px solid rgba(139,220,255,.25)}
+.quick-links a:hover{background:#2f9cff}
+
+.section-block{margin-top:38px}
+.section-block h2{margin-bottom:18px;color:var(--blue-soft);font-size:1.85rem}
+.section-note{color:var(--muted);margin:-8px 0 18px;line-height:1.5}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+}
+
+.person-card{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:16px;
+    align-items:stretch;
+    background:var(--panel);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:18px;
+    padding:14px;
+    min-height:210px;
+    box-shadow:0 12px 28px rgba(0,0,0,.24);
+    transition:.22s;
+}
+.person-card:hover{transform:translateY(-4px);border-color:rgba(139,220,255,.65);background:rgba(18,30,52,.92)}
+
+.portrait{
+    width:100%;height:100%;min-height:180px;border-radius:14px;overflow:hidden;
+    background:linear-gradient(135deg,rgba(88,183,255,.20),rgba(242,198,109,.12));
+    border:1px solid rgba(255,255,255,.10);
+    display:flex;align-items:center;justify-content:center;text-align:center;color:#dcecff;font-weight:bold;padding:10px;
+}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block}
+.portrait img:invalid{display:none}
+
+.info{display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.info h3{font-size:1.28rem;color:white;margin-bottom:6px}
+.info h3 a{color:white;text-decoration:none}
+.info h3 a:hover{color:var(--blue-soft)}
+.meta{color:var(--gold);font-size:.92rem;margin-bottom:8px}
+.info p{color:var(--muted);line-height:1.5;font-size:.96rem}
+.open-link{align-self:flex-start;color:white;text-decoration:none;font-weight:bold;padding:9px 13px;border-radius:10px;background:#2f9cff}
+.open-link:hover{background:#58b7ff}
+
+.family-row{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+    margin-bottom:18px;
+}
+
+.family-box{
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:18px;
+}
+.family-box h3{color:var(--blue-soft);margin-bottom:12px}
+.family-box ul{list-style:none;display:grid;gap:9px}
+.family-box a{color:white;text-decoration:none}
+.family-box a:hover{color:var(--blue-soft)}
+.family-box span{color:var(--muted)}
+
+footer{text-align:center;padding:50px 20px;color:#aeb8c7}
+
+@media (max-width:900px){
+    .card-grid,.family-row{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+    header{padding:54px 16px 28px}
+    nav{position:static}
+    main{padding:26px 14px 40px}
+    .person-card{grid-template-columns:1fr}
+    .portrait{height:430px}
+}
+</style>
+</head>
+
+<body>
+<header>
+    <h1>Personnages</h1>
+    <p class="subtitle">Fiches, familles, groupes et compagnons — Tome 1</p>
+</header>
+
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="personnages.html" class="active">Personnages</a>
+    <a href="monde.html">Monde</a>
+    <a href="magie.html">Magie</a>
+    <a href="academie.html">Académie</a>
+    <a href="bestiaire.html">Bestiaire</a>
+    <a href="cartes.html">Cartes</a>
+</nav>
+
+<main>
+<section class="intro">
+    <h2>Répertoire des personnages</h2>
+    <p>
+        Cette page sert de sommaire visuel. Chaque carte mène vers une fiche individuelle à compléter :
+        famille, éléments, relations, rôle dans le Tome 1, notes et images.
+    </p>
+    <div class="quick-links">
+        <a href="#principaux">Principaux</a>
+        <a href="#familles">Familles</a>
+        <a href="#amis">Amis</a>
+        <a href="#elementaires">Élémentaires</a>
+        <a href="#souverains">Souverains</a>
+        <a href="#tous">Tous</a>
+    </div>
+</section>
+
+<section id="principaux" class="section-block">
+    <h2>Personnages principaux</h2>
+    <div class="card-grid">
+        <article class="person-card">
+            <div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Markus.png" alt="Markus Stormvald"></div>
+            <div class="info"><div><h3><a href="markus.html">Markus Stormvald</a></h3><div class="meta">Est / Stormvald — Del Fuego</div><p>Protagoniste. Fils d’Odin Stormvald et d’Isabella Del Fuego.</p></div><a class="open-link" href="markus.html">Ouvrir la fiche</a></div>
+        </article>
+        <article class="person-card">
+            <div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Liora.png" alt="Liora Aranval"></div>
+            <div class="info"><div><h3><a href="liora.html">Liora Aranval</a></h3><div class="meta">Elfe / Aranval</div><p>Amie proche de Markus. Fille d’Aldaron Shadowstep et d’Aelwen Aranval.</p></div><a class="open-link" href="liora.html">Ouvrir la fiche</a></div>
+        </article>
+        <article class="person-card">
+            <div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Hiro.png" alt="Hiro Kazehito"></div>
+            <div class="info"><div><h3><a href="hiro.html">Hiro Kazehito</a></h3><div class="meta">Est / Kazehito</div><p>Ami de Markus. Présent dans le cercle proche du Tome 1.</p></div><a class="open-link" href="hiro.html">Ouvrir la fiche</a></div>
+        </article>
+        <article class="person-card">
+            <div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Soren.png" alt="Soren Skarsen"></div>
+            <div class="info"><div><h3><a href="soren.html">Soren Skarsen</a></h3><div class="meta">Nord / Skarsen</div><p>Éveillé majeur. Fils du duc Kael Skarsen et de Victoria.</p></div><a class="open-link" href="soren.html">Ouvrir la fiche</a></div>
+        </article>
+    </div>
+</section>
+
+<section id="familles" class="section-block">
+    <h2>Familles</h2>
+    <p class="section-note">Liens directs vers les fiches, rangés par blocs familiaux.</p>
+    <div class="family-row">
+        <div class="family-box">
+            <h3>Stormvald / Nord</h3>
+            <ul>
+                <li><a href="odin.html">Odin Stormvald</a> <span>— père de Markus</span></li>
+                <li><a href="henrik.html">Henrik Stormvald</a> <span>— grand-père paternel</span></li>
+                <li><a href="alice.html">Alice KallStröm</a> <span>— grand-mère paternelle</span></li>
+                <li><a href="bjorn.html">Bjorn Stormvald</a> <span>— roi du Nord</span></li>
+                <li><a href="inga.html">Inga Stormvald</a> <span>— cousine de Markus</span></li>
+                <li><a href="linus.html">Linus Stormvald</a> <span>— cousin de Markus</span></li>
+            </ul>
+        </div>
+        <div class="family-box">
+            <h3>Del Fuego / Sud</h3>
+            <ul>
+                <li><a href="isabella.html">Isabella Del Fuego</a> <span>— mère de Markus</span></li>
+                <li><a href="manuel.html">Manuel Del Fuego</a> <span>— grand-père maternel</span></li>
+                <li><a href="elisa.html">Elisa Vulcani</a> <span>— grand-mère maternelle</span></li>
+                <li><a href="ignacio.html">Ignacio</a> <span>— souverain du Sud</span></li>
+                <li><a href="teresa.html">Teresa</a> <span>— famille du Sud</span></li>
+                <li><a href="mateo.html">Mateo Del Fuego</a> <span>— cousin de Markus</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="family-row">
+        <div class="family-box">
+            <h3>Aranval / Elfes</h3>
+            <ul>
+                <li><a href="liora.html">Liora Aranval</a></li>
+                <li><a href="aldaron.html">Aldaron Shadowstep</a> <span>— père de Liora</span></li>
+                <li><a href="aelwen.html">Aelwen Aranval</a> <span>— mère de Liora</span></li>
+                <li><a href="thalion.html">Thalion Aranval</a> <span>— roi des Elfes</span></li>
+                <li><a href="varda-nandil.html">Varda-Nandil Aranval</a> <span>— Reine du Lac</span></li>
+            </ul>
+        </div>
+        <div class="family-box">
+            <h3>Autres familles</h3>
+            <ul>
+                <li><a href="kazehito.html">Famille Kazehito</a> <span>— Hiro</span></li>
+                <li><a href="kazehaya.html">Famille Kazehaya</a> <span>— Akira</span></li>
+                <li><a href="takamura.html">Famille Takamura</a> <span>— Yasuko</span></li>
+                <li><a href="vale.html">Famille Vale</a> <span>— Paul et Iris</span></li>
+                <li><a href="halvorsen.html">Famille Halvorsen</a> <span>— Olga</span></li>
+                <li><a href="nordstrom.html">Famille Nordström</a> <span>— Sven</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="amis" class="section-block">
+    <h2>Amis et cercle proche</h2>
+    <div class="card-grid">
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Hiro.png" alt="Hiro Kazehito"></div><div class="info"><div><h3><a href="hiro.html">Hiro Kazehito</a></h3><div class="meta">Ami proche</div><p>Fiche à compléter.</p></div><a class="open-link" href="hiro.html">Ouvrir</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Liora.png" alt="Liora Aranval"></div><div class="info"><div><h3><a href="liora.html">Liora Aranval</a></h3><div class="meta">Amie proche</div><p>Fiche à compléter.</p></div><a class="open-link" href="liora.html">Ouvrir</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Soren.png" alt="Soren Skarsen"></div><div class="info"><div><h3><a href="soren.html">Soren Skarsen</a></h3><div class="meta">Éveillé</div><p>Fiche à compléter.</p></div><a class="open-link" href="soren.html">Ouvrir</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Yasuko.png" alt="Yasuko Takamura"></div><div class="info"><div><h3><a href="yasuko.html">Yasuko Takamura</a></h3><div class="meta">Est</div><p>Fiche à compléter.</p></div><a class="open-link" href="yasuko.html">Ouvrir</a></div></article>
+    </div>
+</section>
+
+<section id="elementaires" class="section-block">
+    <h2>Compagnons élémentaires de Markus</h2>
+    <p class="section-note">Séparés des familiers : ce sont des compagnons élémentaires liés à Markus.</p>
+    <div class="card-grid">
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Fenrir.png" alt="Fenrir"></div><div class="info"><div><h3><a href="fenrir.html">Fenrir</a></h3><div class="meta">Glace / Loup élémentaire</div><p>Compagnon élémentaire lié à Markus.</p></div><a class="open-link" href="fenrir.html">Ouvrir la fiche</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Piou.png" alt="Piou"></div><div class="info"><div><h3><a href="piou.html">Piou / Pyros</a></h3><div class="meta">Feu / Phoenix élémentaire</div><p>Ancien compagnon de Manuel, hérité par Markus.</p></div><a class="open-link" href="piou.html">Ouvrir la fiche</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Aeris.png" alt="Aeris"></div><div class="info"><div><h3><a href="aeris.html">Aeris</a></h3><div class="meta">Vent / Sylphe</div><p>Esprit du vent, lié à la Perle du Vent.</p></div><a class="open-link" href="aeris.html">Ouvrir la fiche</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Lumos.png" alt="Lumos"></div><div class="info"><div><h3><a href="lumos.html">Lumos</a></h3><div class="meta">Lumière / Élémentaire</div><p>Fiche à compléter.</p></div><a class="open-link" href="lumos.html">Ouvrir la fiche</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Boue.png" alt="Boue"></div><div class="info"><div><h3><a href="boue.html">Boue</a></h3><div class="meta">Terre / Golem élémentaire</div><p>Golem de terre, forme compacte et protectrice.</p></div><a class="open-link" href="boue.html">Ouvrir la fiche</a></div></article>
+    </div>
+</section>
+
+<section id="souverains" class="section-block">
+    <h2>Souverains et grandes figures</h2>
+    <div class="card-grid">
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Bjorn.png" alt="Bjorn"></div><div class="info"><div><h3><a href="bjorn.html">Bjorn</a></h3><div class="meta">Nord</div><p>Roi du Nord.</p></div><a class="open-link" href="bjorn.html">Ouvrir</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Ignacio.png" alt="Ignacio"></div><div class="info"><div><h3><a href="ignacio.html">Ignacio</a></h3><div class="meta">Sud</div><p>Souverain du Sud.</p></div><a class="open-link" href="ignacio.html">Ouvrir</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Victoria.png" alt="Victoria"></div><div class="info"><div><h3><a href="victoria.html">Victoria</a></h3><div class="meta">Ouest</div><p>Archimage de l’Ouest.</p></div><a class="open-link" href="victoria.html">Ouvrir</a></div></article>
+        <article class="person-card"><div class="portrait"><img src="https://raw.githubusercontent.com/Markus0975/img/main/Yasuko.png" alt="Yasuko"></div><div class="info"><div><h3><a href="yasuko-archimage.html">Yasuko</a></h3><div class="meta">Est</div><p>Archimage de l’Est.</p></div><a class="open-link" href="yasuko-archimage.html">Ouvrir</a></div></article>
+    </div>
+</section>
+
+<section id="tous" class="section-block">
+    <h2>Tous les personnages à compléter</h2>
+    <div class="family-row">
+        <div class="family-box">
+            <h3>Les 13 Éveillés</h3>
+            <ul>
+                <li><a href="markus.html">Markus Stormvald</a></li>
+                <li><a href="liora.html">Liora Aranval</a></li>
+                <li><a href="akira.html">Akira Kazehaya</a></li>
+                <li><a href="yasuko.html">Yasuko Takamura</a></li>
+                <li><a href="sven.html">Sven Nordström</a></li>
+                <li><a href="soren.html">Soren Skarsen</a></li>
+                <li><a href="olga.html">Olga Halvorsen</a></li>
+                <li><a href="arthur.html">Arthur Breton</a></li>
+                <li><a href="lucia.html">Lucia Bellaforge</a></li>
+                <li><a href="edric.html">Edric Valmont</a></li>
+                <li><a href="esmeralda.html">Esmeralda Candela</a></li>
+                <li><a href="zahra.html">Zahra Solis</a></li>
+                <li><a href="diego.html">Diego Montoro</a></li>
+            </ul>
+        </div>
+        <div class="family-box">
+            <h3>Autres fiches</h3>
+            <ul>
+                <li><a href="hiro.html">Hiro Kazehito</a></li>
+                <li><a href="inga.html">Inga Stormvald</a></li>
+                <li><a href="linus.html">Linus Stormvald</a></li>
+                <li><a href="mateo.html">Mateo Del Fuego</a></li>
+                <li><a href="rin.html">Rin Oukikaze</a></li>
+                <li><a href="iris.html">Iris Vale</a></li>
+                <li><a href="paul.html">Paul Vale</a></li>
+                <li><a href="remi.html">Rémi Durand</a></li>
+                <li><a href="daan.html">Daan Dustorm</a></li>
+                <li><a href="lina.html">Lina Fröst</a></li>
+                <li><a href="jof.html">Jof</a></li>
+                <li><a href="aldric.html">Professeur Aldric</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>© 2026 Blue World — Markus Stormvald</footer>
+</body>
+</html>
