@@ -172,11 +172,17 @@ main{
     font-size:1.9rem;
 }
 
-.characters,
-.grandparents{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
+
+.gallery-table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:18px;
+    table-layout:fixed;
+}
+
+.gallery-table td{
+    width:25%;
+    vertical-align:top;
 }
 
 .character,
@@ -184,10 +190,11 @@ main{
     background:var(--panel-light);
     border:1px solid rgba(255,255,255,.10);
     border-radius:18px;
-    padding:16px;
+    padding:14px;
     text-align:center;
     transition:.22s;
     box-shadow:0 10px 26px rgba(0,0,0,.24);
+    height:100%;
 }
 
 .character:hover,
@@ -200,12 +207,14 @@ main{
 .character img,
 .grandparent img{
     width:100%;
-    aspect-ratio:1/1;
+    height:clamp(300px, 34vw, 520px);
     object-fit:cover;
+    object-position:center 8%;
     border-radius:15px;
     margin-bottom:12px;
     background:#111827;
     border:1px solid rgba(255,255,255,.10);
+    display:block;
 }
 
 .character a,
@@ -225,6 +234,36 @@ main{
     font-size:.9rem;
 }
 
+@media (max-width:1100px){
+    .gallery-table td{
+        width:33.333%;
+    }
+}
+
+@media (max-width:760px){
+    .gallery-table,
+    .gallery-table tbody,
+    .gallery-table tr,
+    .gallery-table td{
+        display:block;
+        width:100%;
+    }
+
+    .gallery-table{
+        border-spacing:0;
+    }
+
+    .gallery-table td{
+        margin-bottom:18px;
+    }
+
+    .character img,
+    .grandparent img{
+        height:520px;
+    }
+}
+
+
 footer{
     text-align:center;
     padding:58px 20px;
@@ -243,8 +282,7 @@ footer{
     main{
         padding:28px 16px;
     }
-
-    .hero{
+.hero{
         padding:24px;
     }
 }
@@ -322,66 +360,84 @@ footer{
 <section class="section-block">
     <h2>Personnages du Tome 1</h2>
 
-    <div class="characters">
+<table class="gallery-table" aria-label="Personnages du Tome 1">
+    <tr>
+        <td>
+            <div class="character">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Markus.png" alt="Markus Stormvald">
+                <a href="characters/markus.html">Markus Stormvald</a>
+            </div>
+        </td>
+        <td>
+            <div class="character">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Liora.png" alt="Liora Aranval">
+                <a href="characters/liora.html">Liora Aranval</a>
+            </div>
+        </td>
+        <td>
+            <div class="character">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Hiro.png" alt="Hiro Kazehito">
+                <a href="characters/hiro.html">Hiro Kazehito</a>
+            </div>
+        </td>
+        <td>
+            <div class="character">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Odin.png" alt="Odin Stormvald">
+                <a href="characters/odin.html">Odin Stormvald</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="character">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Isabella.png" alt="Isabella Del Fuego">
+                <a href="characters/isabella.html">Isabella Del Fuego</a>
+            </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
 
-        <div class="character">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Markus.png" alt="Markus Stormvald">
-            <a href="characters/markus.html">Markus Stormvald</a>
-        </div>
-
-        <div class="character">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Liora.png" alt="Liora Aranval">
-            <a href="characters/liora.html">Liora Aranval</a>
-        </div>
-
-        <div class="character">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Hiro.png" alt="Hiro Kazehito">
-            <a href="characters/hiro.html">Hiro Kazehito</a>
-        </div>
-
-        <div class="character">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Odin.png" alt="Odin Stormvald">
-            <a href="characters/odin.html">Odin Stormvald</a>
-        </div>
-
-        <div class="character">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Isabella.png" alt="Isabella Del Fuego">
-            <a href="characters/isabella.html">Isabella Del Fuego</a>
-        </div>
-
-    </div>
 </section>
 
 <section class="section-block">
     <h2>Les quatre grands-parents de Markus</h2>
 
-    <div class="grandparents">
+<table class="gallery-table" aria-label="Les quatre grands-parents de Markus">
+    <tr>
+        <td>
+            <div class="grandparent">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Henrik.png" alt="Henrik Stormvald">
+                <a href="characters/henrik.html">Henrik Stormvald</a>
+                <div class="lineage">Grand-père paternel</div>
+            </div>
+        </td>
+        <td>
+            <div class="grandparent">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Alice.png" alt="Alice KallStröm">
+                <a href="characters/alice.html">Alice KallStröm</a>
+                <div class="lineage">Grand-mère paternelle</div>
+            </div>
+        </td>
+        <td>
+            <div class="grandparent">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Manuel.png" alt="Manuel Del Fuego">
+                <a href="characters/manuel.html">Manuel Del Fuego</a>
+                <div class="lineage">Grand-père maternel</div>
+            </div>
+        </td>
+        <td>
+            <div class="grandparent">
+                <img src="https://raw.githubusercontent.com/Markus0975/img/main/Elisa.png" alt="Elisa Vulcani">
+                <a href="characters/elisa.html">Elisa Vulcani</a>
+                <div class="lineage">Grand-mère maternelle</div>
+            </div>
+        </td>
+    </tr>
+</table>
 
-        <div class="grandparent">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Henrik.png" alt="Henrik Stormvald">
-            <a href="characters/henrik.html">Henrik Stormvald</a>
-            <div class="lineage">Grand-père paternel</div>
-        </div>
-
-        <div class="grandparent">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Alice.png" alt="Alice KallStröm">
-            <a href="characters/alice.html">Alice KallStröm</a>
-            <div class="lineage">Grand-mère paternelle</div>
-        </div>
-
-        <div class="grandparent">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Manuel.png" alt="Manuel Del Fuego">
-            <a href="characters/manuel.html">Manuel Del Fuego</a>
-            <div class="lineage">Grand-père maternel</div>
-        </div>
-
-        <div class="grandparent">
-            <img src="https://raw.githubusercontent.com/Markus0975/img/main/Elisa.png" alt="Elisa Vulcani">
-            <a href="characters/elisa.html">Elisa Vulcani</a>
-            <div class="lineage">Grand-mère maternelle</div>
-        </div>
-
-    </div>
 </section>
 
 </main>
