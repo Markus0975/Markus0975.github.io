@@ -1,353 +1,241 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Blue World — Markus Stormvald</title>
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-:root{
-    --blue:#58b7ff;
-    --blue-soft:#8bdcff;
-    --gold:#f2c66d;
-    --text:#f5f7fb;
-    --muted:#d2d9e4;
-    --panel:rgba(14,22,38,.88);
-    --panel-light:rgba(255,255,255,.08);
-    --border:rgba(255,255,255,.12);
-}
-
-body{
-    min-height:100vh;
-    font-family:Arial, sans-serif;
-    color:var(--text);
-    background:
-        linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.94)),
-        url("https://raw.githubusercontent.com/Markus0975/img/main/map.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-}
-
-header{
-    padding:86px 20px 44px;
-    text-align:center;
-}
-
-h1{
-    font-size:clamp(2.6rem,7vw,4.6rem);
-    letter-spacing:4px;
-    text-transform:uppercase;
-    text-shadow:0 8px 28px rgba(0,0,0,.65);
-}
-
-.subtitle{
-    margin-top:14px;
-    font-size:1.18rem;
-    color:#d8e6ff;
-}
-
-nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    padding:18px;
-    background:rgba(0,0,0,.36);
-    backdrop-filter:blur(8px);
-    position:sticky;
-    top:0;
-    z-index:10;
-    border-top:1px solid rgba(255,255,255,.08);
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:10px 16px;
-    border-radius:999px;
-    background:rgba(255,255,255,.12);
-    transition:.2s;
-}
-
-nav a:hover{
-    background:#2f9cff;
-    transform:translateY(-1px);
-}
-
-main{
-    max-width:1180px;
-    margin:auto;
-    padding:42px 24px 30px;
-}
-
-.hero{
-    background:rgba(10,18,32,.84);
-    border:1px solid var(--border);
-    border-radius:24px;
-    padding:34px;
-    margin-bottom:34px;
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
-}
-
-.hero h2{
-    font-size:2rem;
-    margin-bottom:15px;
-    color:var(--blue-soft);
-}
-
-.hero p{
-    line-height:1.7;
-    color:#d7deea;
-    max-width:870px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:22px;
-}
-
-.card{
-    background:var(--panel);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:20px;
-    padding:25px;
-    min-height:200px;
-    transition:.22s;
-    box-shadow:0 12px 28px rgba(0,0,0,.24);
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#62caff;
-    box-shadow:0 15px 42px rgba(0,0,0,.42);
-}
-
-.card h3{
-    font-size:1.42rem;
-    margin-bottom:14px;
-    color:var(--blue-soft);
-}
-
-.card p{
-    color:var(--muted);
-    line-height:1.55;
-}
-
-.card a,
-.character a,
-.grandparent a{
-    display:inline-block;
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.card a{
-    margin-top:18px;
-    padding:10px 18px;
-    border-radius:10px;
-    background:#2f9cff;
-}
-
-.card a:hover{
-    background:#58b7ff;
-}
-
-.section-block{
-    margin-top:42px;
-}
-
-.section-block h2{
-    margin-bottom:20px;
-    color:var(--blue-soft);
-    font-size:1.9rem;
-}
-
-
-.gallery-table{
-    width:100%;
-    border-collapse:separate;
-    border-spacing:18px;
-    table-layout:fixed;
-}
-
-.gallery-table td{
-    width:25%;
-    vertical-align:top;
-}
-
-.character,
-.grandparent{
-    background:var(--panel-light);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:18px;
-    padding:14px;
-    text-align:center;
-    transition:.22s;
-    box-shadow:0 10px 26px rgba(0,0,0,.24);
-    height:100%;
-}
-
-.character:hover,
-.grandparent:hover{
-    transform:translateY(-4px);
-    border-color:rgba(139,220,255,.65);
-    background:rgba(255,255,255,.11);
-}
-
-.character img,
-.grandparent img{
-    width:100%;
-    height:clamp(300px, 34vw, 520px);
-    object-fit:cover;
-    object-position:center 8%;
-    border-radius:15px;
-    margin-bottom:12px;
-    background:#111827;
-    border:1px solid rgba(255,255,255,.10);
-    display:block;
-}
-
-.character a,
-.grandparent a{
-    padding:4px 0;
-    font-size:1rem;
-}
-
-.character a:hover,
-.grandparent a:hover{
-    color:var(--blue-soft);
-}
-
-.grandparent .lineage{
-    margin-top:6px;
-    color:var(--gold);
-    font-size:.9rem;
-}
-
-@media (max-width:1100px){
-    .gallery-table td{
-        width:33.333%;
-    }
-}
-
-@media (max-width:760px){
-    .gallery-table,
-    .gallery-table tbody,
-    .gallery-table tr,
-    .gallery-table td{
-        display:block;
-        width:100%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue World — Encyclopédie</title>
+  <style>
+    :root {
+      --menu-width: clamp(205px, 15vw, 270px);
+      --gold: #e9c76b;
+      --panel: rgba(8, 18, 35, 0.84);
+      --panel-soft: rgba(12, 27, 49, 0.72);
+      --line: rgba(233, 199, 107, 0.42);
+      --text: #f6f3e9;
     }
 
-    .gallery-table{
-        border-spacing:0;
+    * {
+      box-sizing: border-box;
     }
 
-    .gallery-table td{
-        margin-bottom:18px;
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
     }
 
-    .character img,
-    .grandparent img{
-        height:520px;
-    }
-}
-
-
-footer{
-    text-align:center;
-    padding:58px 20px;
-    color:#aeb8c7;
-}
-
-@media (max-width:640px){
-    header{
-        padding:58px 16px 32px;
+    body {
+      overflow: hidden;
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        linear-gradient(rgba(4, 12, 24, 0.56), rgba(4, 12, 24, 0.56)),
+        url("map.jpg") center center / cover fixed no-repeat;
     }
 
-    nav{
-        position:static;
+    .site-shell {
+      display: grid;
+      grid-template-columns: var(--menu-width) minmax(0, 1fr);
+      width: 100vw;
+      height: 100vh;
+      min-height: 100dvh;
     }
 
-    main{
-        padding:28px 16px;
+    aside {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 24px 15px 20px;
+      background: linear-gradient(180deg, rgba(5, 15, 30, 0.94), rgba(8, 23, 43, 0.88));
+      border-right: 1px solid var(--line);
+      box-shadow: 5px 0 25px rgba(0, 0, 0, 0.28);
     }
-.hero{
-        padding:24px;
+
+    .brand {
+      margin: 0 0 28px;
+      padding: 0 6px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
     }
-}
-</style>
+
+    .brand h1 {
+      margin: 0;
+      color: var(--gold);
+      font-size: clamp(1.45rem, 1.8vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      text-shadow: 0 2px 9px rgba(0, 0, 0, 0.7);
+    }
+
+    .brand p {
+      margin: 8px 0 0;
+      color: rgba(246, 243, 233, 0.82);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .nav-link {
+      display: block;
+      width: 100%;
+      padding: 14px 13px;
+      color: var(--text);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      text-align: left;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(233, 199, 107, 0.22);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease, color 0.18s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: #fff8d8;
+      background: rgba(233, 199, 107, 0.16);
+      border-color: var(--gold);
+      outline: none;
+      transform: translateX(3px);
+    }
+
+    .nav-link.active {
+      color: #17120a;
+      background: linear-gradient(135deg, #f3d984, #c99a35);
+      border-color: #ffe7a0;
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.34);
+    }
+
+    .footer {
+      margin-top: auto;
+      padding-top: 18px;
+      color: rgba(246, 243, 233, 0.55);
+      font-size: 0.75rem;
+      line-height: 1.45;
+      text-align: center;
+      border-top: 1px solid rgba(233, 199, 107, 0.18);
+    }
+
+    main {
+      min-width: 0;
+      min-height: 0;
+      padding: 16px;
+    }
+
+    .content-frame {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(233, 199, 107, 0.56);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38);
+    }
+
+    @media (max-width: 700px) {
+      body {
+        overflow: auto;
+      }
+
+      .site-shell {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(70vh, 1fr);
+        height: auto;
+        min-height: 100dvh;
+      }
+
+      aside {
+        padding: 16px 14px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+      }
+
+      nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .nav-link {
+        padding: 11px 10px;
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        display: none;
+      }
+
+      main {
+        min-height: 74vh;
+        padding: 10px;
+      }
+
+      .content-frame {
+        min-height: 72vh;
+        border-radius: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-<h1>Blue World</h1>
-<p class="subtitle">Guide sans spoilers — Tome 1</p>
-</header>
-<nav>
-<a href="index.html">Accueil</a>
-<a href="personnages.html">Personnages</a>
-<a href="monde.html">Monde</a>
-<a href="magie.html">Magie</a>
-<a href="academie.html">Académie</a>
-<a href="bestiaire.html">Bestiaire</a>
-<a href="cartes.html">Cartes</a>
-</nav>
-<main>
-<section class="hero">
-<h2>Bienvenue dans Blue World</h2>
-<p>
-        Retrouvez ici les personnages, royaumes, familles, éléments, compagnons,
-        familiers, tours, académies et lieux importants de l’univers de Markus Stormvald,
-        avec une présentation limitée aux informations accessibles dans le Tome 1.
-    </p>
-</section>
-<section class="grid">
-<article class="card">
-<h3>Personnages</h3>
-<p>Fiches, familles, liens de parenté, éléments connus et relations établies dans le Tome 1.</p>
-<a href="personnages.html">Explorer</a>
-</article>
-<article class="card">
-<h3>Monde</h3>
-<p>Les grandes régions, leurs cultures, leurs souverains et les lieux évoqués dans le récit.</p>
-<a href="monde.html">Explorer</a>
-</article>
-<article class="card">
-<h3>Magie</h3>
-<p>Mana, éléments, éveils, compagnons élémentaires, familiers et règles connues.</p>
-<a href="magie.html">Explorer</a>
-</article>
-<article class="card">
-<h3>Académie</h3>
-<p>Élèves, professeurs, entraînements, cours et vie scolaire au fil du Tome 1.</p>
-<a href="academie.html">Explorer</a>
-</article>
-<article class="card">
-<h3>Bestiaire</h3>
-<p>Créatures, compagnons élémentaires, familiers et êtres légendaires déjà présentés.</p>
-<a href="bestiaire.html">Explorer</a>
-</article>
-<article class="card">
-<h3>Cartes</h3>
-<p>Carte générale de Blue World, royaumes, académies et lieux majeurs.</p>
-<a href="cartes.html">Explorer</a>
-</article>
-</section>
+  <div class="site-shell">
+    <aside>
+      <div class="brand">
+        <h1>Blue World</h1>
+        <p>Encyclopédie</p>
+      </div>
 
+      <nav aria-label="Navigation principale">
+        <a class="nav-link active" href="personnages.html" target="content-frame">Personnages</a>
+        <a class="nav-link" href="eveilles.html" target="content-frame">Éveillés</a>
+        <a class="nav-link" href="famille.html" target="content-frame">Famille</a>
+        <a class="nav-link" href="elementaires.html" target="content-frame">Élémentaires</a>
+        <a class="nav-link" href="professeurs.html" target="content-frame">Professeurs</a>
+        <a class="nav-link" href="lieux.html" target="content-frame">Lieux</a>
+      </nav>
 
-</main>
-<footer>
-    © 2026 Blue World — Markus Stormvald
-</footer>
+      <div class="footer">
+        Blue World<br>
+        Personnages, familles et territoires
+      </div>
+    </aside>
+
+    <main>
+      <iframe
+        class="content-frame"
+        name="content-frame"
+        title="Contenu Blue World"
+        src="personnages.html">
+      </iframe>
+    </main>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll(".nav-link");
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        links.forEach((item) => item.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
