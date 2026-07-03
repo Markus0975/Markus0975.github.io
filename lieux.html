@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue World — Lieux</title>
+  <style>
+    :root {
+      --ink: #10213a;
+      --gold: #c89d3d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; background: transparent; }
+
+    body {
+      min-height: 100%;
+      margin: 0;
+      background:
+        linear-gradient(rgba(249, 246, 237, 0.90), rgba(249, 246, 237, 0.90)),
+        url("map.jpg") center / cover fixed no-repeat;
+    }
+
+    .page {
+      width: min(1500px, 100%);
+      margin: 0 auto;
+      padding: clamp(18px, 3vw, 42px);
+    }
+
+    .palace-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .palace-card {
+      display: block;
+      min-width: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid rgba(16, 33, 58, 0.22);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(10, 23, 45, 0.16);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .palace-card:hover,
+    .palace-card:focus-visible {
+      border-color: var(--gold);
+      box-shadow: 0 11px 28px rgba(10, 23, 45, 0.28);
+      outline: none;
+      transform: translateY(-4px);
+    }
+
+    .palace-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #d5dce5;
+      transition: transform 0.3s ease;
+    }
+
+    .palace-card:hover img,
+    .palace-card:focus-visible img {
+      transform: scale(1.035);
+    }
+
+    .lightbox {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 50px);
+      background: rgba(3, 8, 16, 0.95);
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 40px);
+      object-fit: contain;
+      border: 1px solid rgba(242, 216, 139, 0.7);
+      box-shadow: 0 12px 45px rgba(0, 0, 0, 0.65);
+    }
+
+    .lightbox-close,
+    .lightbox-arrow {
+      position: fixed;
+      z-index: 1;
+      color: #fff9e7;
+      font-family: Arial, sans-serif;
+      line-height: 1;
+      background: rgba(17, 31, 51, 0.75);
+      border: 1px solid rgba(242, 216, 139, 0.55);
+      cursor: pointer;
+    }
+
+    .lightbox-close {
+      top: 18px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 2rem;
+    }
+
+    .lightbox-arrow {
+      top: 50%;
+      width: 48px;
+      height: 62px;
+      border-radius: 8px;
+      font-size: 2.8rem;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-prev { left: 18px; }
+    .lightbox-next { right: 18px; }
+
+    .lightbox-close:hover,
+    .lightbox-close:focus-visible,
+    .lightbox-arrow:hover,
+    .lightbox-arrow:focus-visible {
+      color: #1a1406;
+      background: #f2d88b;
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+      .palace-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .lightbox-arrow {
+        width: 39px;
+        height: 52px;
+        font-size: 2.2rem;
+      }
+
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="palace-grid" aria-label="Galerie des palais">
+      <button class="palace-card" type="button" data-image="palaisarthur.png" aria-label="Ouvrir l’image 1">
+        <img src="palaisarthur.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaisedric.png" aria-label="Ouvrir l’image 2">
+        <img src="palaisedric.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaiselfe.png" aria-label="Ouvrir l’image 3">
+        <img src="palaiselfe.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaiselisa.png" aria-label="Ouvrir l’image 4">
+        <img src="palaiselisa.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaisest.png" aria-label="Ouvrir l’image 5">
+        <img src="palaisest.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaiszahra.png" aria-label="Ouvrir l’image 6">
+        <img src="palaiszahra.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaisdiego.png" aria-label="Ouvrir l’image 7">
+        <img src="palaisdiego.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaissoren.png" aria-label="Ouvrir l’image 8">
+        <img src="palaissoren.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaisolga.png" aria-label="Ouvrir l’image 9">
+        <img src="palaisolga.png" alt="" loading="lazy">
+      </button>
+      <button class="palace-card" type="button" data-image="palaisnord.png" aria-label="Ouvrir l’image 10">
+        <img src="palaisnord.png" alt="" loading="lazy">
+      </button>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Fermer">×</button>
+    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Image précédente">‹</button>
+    <img id="lightbox-image" src="" alt="">
+    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Image suivante">›</button>
+  </div>
+
+  <script>
+    const cards = [...document.querySelectorAll(".palace-card")];
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const closeButton = document.querySelector(".lightbox-close");
+    const previousButton = document.querySelector(".lightbox-prev");
+    const nextButton = document.querySelector(".lightbox-next");
+    let currentIndex = 0;
+
+    function showImage(index) {
+      currentIndex = (index + cards.length) % cards.length;
+      lightboxImage.src = cards[currentIndex].dataset.image;
+    }
+
+    function openLightbox(index) {
+      showImage(index);
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      cards[currentIndex].focus();
+    }
+
+    cards.forEach((card, index) => {
+      card.addEventListener("click", () => openLightbox(index));
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+    previousButton.addEventListener("click", () => showImage(currentIndex - 1));
+    nextButton.addEventListener("click", () => showImage(currentIndex + 1));
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("open")) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showImage(currentIndex - 1);
+      if (event.key === "ArrowRight") showImage(currentIndex + 1);
+    });
+  </script>
+</body>
+</html>
