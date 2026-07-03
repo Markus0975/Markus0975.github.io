@@ -1,389 +1,307 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Blue World — Famille de Markus</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-:root{
-
---blue:#58b7ff;
---blue2:#8bdcff;
---text:#f5f7fb;
---panel:rgba(14,22,38,.88);
---border:rgba(255,255,255,.10);
-
-}
-
-body{
-
-font-family:Arial,sans-serif;
-
-background:
-linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.94)),
-url("https://raw.githubusercontent.com/Markus0975/img/main/map.jpg");
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-
-color:white;
-
-}
-
-header{
-
-padding:80px 20px 40px;
-text-align:center;
-
-}
-
-h1{
-
-font-size:clamp(2.5rem,6vw,4rem);
-letter-spacing:4px;
-text-transform:uppercase;
-
-}
-
-.subtitle{
-
-margin-top:12px;
-color:#dbe8ff;
-
-}
-
-nav{
-
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:12px;
-
-padding:18px;
-
-background:rgba(0,0,0,.35);
-
-backdrop-filter:blur(8px);
-
-}
-
-nav a{
-
-color:white;
-text-decoration:none;
-
-padding:10px 16px;
-
-border-radius:999px;
-
-background:rgba(255,255,255,.12);
-
-}
-
-nav a:hover{
-
-background:#2f9cff;
-
-}
-
-main{
-
-width:min(1200px,95%);
-margin:auto;
-
-padding:50px 0;
-
-}
-
-section{
-
-background:var(--panel);
-
-border-radius:22px;
-
-padding:30px;
-
-margin-bottom:35px;
-
-border:1px solid var(--border);
-
-}
-
-section h2{
-
-margin-bottom:25px;
-
-color:var(--blue2);
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
-gap:20px;
-
-}
-
-.person{
-
-display:flex;
-
-align-items:center;
-
-gap:16px;
-
-padding:14px;
-
-border-radius:14px;
-
-background:rgba(255,255,255,.05);
-
-text-decoration:none;
-
-color:white;
-
-transition:.2s;
-
-}
-
-.person:hover{
-
-background:rgba(88,183,255,.18);
-
-}
-
-.person img{
-
-width:90px;
-height:110px;
-
-object-fit:cover;
-
-border-radius:12px;
-
-flex-shrink:0;
-
-}
-
-.person h3{
-
-margin-bottom:8px;
-
-}
-
-.person p{
-
-color:#d6d6d6;
-
-font-size:.95rem;
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue World — Famille de Markus</title>
+
+  <style>
+    :root {
+      --ink: #10213a;
+      --ink-soft: #38516d;
+      --gold: #c89d3d;
+      --paper: rgba(249, 246, 237, 0.94);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        linear-gradient(rgba(249, 246, 237, 0.91), rgba(249, 246, 237, 0.91)),
+        url("map.jpg") center / cover fixed no-repeat;
+    }
+
+    .page {
+      width: min(1450px, 100%);
+      margin: 0 auto;
+      padding: clamp(20px, 3vw, 42px);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .rule {
+      width: min(400px, 75%);
+      height: 2px;
+      margin: 16px auto 14px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+      );
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .family-section {
+      margin-top: 34px;
+    }
+
+    .family-section:first-of-type {
+      margin-top: 0;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 18px;
+      color: var(--ink);
+      font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+      letter-spacing: 0.035em;
+      text-transform: uppercase;
+    }
+
+    h2::after {
+      flex: 1;
+      height: 1px;
+      content: "";
+      background: linear-gradient(
+        90deg,
+        rgba(200, 157, 61, 0.9),
+        rgba(200, 157, 61, 0)
+      );
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: clamp(14px, 2vw, 22px);
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+      padding: 13px;
+      color: var(--ink);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(16, 33, 58, 0.2);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(10, 23, 45, 0.16);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .person:hover,
+    .person:focus-visible {
+      border-color: var(--gold);
+      box-shadow: 0 11px 28px rgba(10, 23, 45, 0.28);
+      outline: none;
+      transform: translateY(-4px);
+    }
+
+    .person img {
+      display: block;
+      flex: 0 0 auto;
+      width: 90px;
+      height: 112px;
+      object-fit: cover;
+      background: #d9e0e9;
+      border: 1px solid rgba(16, 33, 58, 0.12);
+      border-radius: 9px;
+    }
+
+    .person-info {
+      min-width: 0;
+    }
+
+    .person h3 {
+      margin: 0 0 7px;
+      color: var(--ink);
+      font-size: 1.14rem;
+      line-height: 1.18;
+    }
+
+    .person p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+
+    .arrow {
+      margin-left: auto;
+      color: var(--gold);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px 12px 30px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .person {
+        gap: 12px;
+        padding: 10px;
+      }
+
+      .person img {
+        width: 78px;
+        height: 98px;
+      }
+
+      .person h3 {
+        font-size: 1.03rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-
-<h1>Famille de Markus</h1>
-
-<div class="subtitle">
-
-Parents • Grands-parents • Cousins
-
-</div>
-
-</header>
-
-<nav>
-
-<a href="index.html">Accueil</a>
-
-<a href="personnages.html">Personnages</a>
-
-<a href="monde.html">Monde</a>
-
-<a href="magie.html">Magie</a>
-
-<a href="academie.html">Académie</a>
-
-<a href="bestiaire.html">Bestiaire</a>
-
-<a href="cartes.html">Cartes</a>
-
-</nav>
-
-<main>
-
-<section>
-
-<h2>Parents</h2>
-
-<div class="grid">
-
-<a class="person" href="odin.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Odin.png">
-
-<div>
-
-<h3>Odin Stormvald</h3>
-
-<p>Père</p>
-
-</div>
-
-</a>
-
-<a class="person" href="isabella.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Isabella.png">
-
-<div>
-
-<h3>Isabella Del Fuego</h3>
-
-<p>Mère</p>
-
-</div>
-
-</a>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Grands-parents</h2>
-
-<div class="grid">
-
-<a class="person" href="henrik.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Henrik.png">
-
-<div>
-
-<h3>Henrik Stormvald</h3>
-
-<p>Grand-père paternel</p>
-
-</div>
-
-</a>
-
-<a class="person" href="alice.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Alice.png">
-
-<div>
-
-<h3>Alice KallStröm</h3>
-
-<p>Grand-mère paternelle</p>
-
-</div>
-
-</a>
-
-<a class="person" href="manuel.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Manuel.png">
-
-<div>
-
-<h3>Manuel Del Fuego</h3>
-
-<p>Grand-père maternel</p>
-
-</div>
-
-</a>
-
-<a class="person" href="elisa.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Elisa.png">
-
-<div>
-
-<h3>Elisa Vulcani</h3>
-
-<p>Grand-mère maternelle</p>
-
-</div>
-
-</a>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>Cousins</h2>
-
-<div class="grid">
-
-<a class="person" href="inga.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Inga.png">
-
-<div>
-
-<h3>Inga Stormvald</h3>
-
-</div>
-
-</a>
-
-<a class="person" href="linus.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Linus.png">
-
-<div>
-
-<h3>Linus Stormvald</h3>
-
-</div>
-
-</a>
-
-<a class="person" href="mateo.html">
-
-<img src="https://raw.githubusercontent.com/Markus0975/img/main/Mateo.png">
-
-<div>
-
-<h3>Mateo Del Fuego</h3>
-
-</div>
-
-</a>
-
-</div>
-
-</section>
-
-</main>
-
+  <main class="page">
+    <h1>Famille de Markus</h1>
+
+    <div class="rule"></div>
+
+    <p class="intro">
+      Parents, grands-parents et cousins de Markus Stormvald.
+    </p>
+
+    <section class="family-section">
+      <h2>Parents</h2>
+
+      <div class="grid">
+        <a class="person" href="odin.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Odin.png" alt="Odin Stormvald" loading="lazy">
+          <div class="person-info">
+            <h3>Odin Stormvald</h3>
+            <p>Père</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="person" href="isabella.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Isabella.png" alt="Isabella Del Fuego" loading="lazy">
+          <div class="person-info">
+            <h3>Isabella Del Fuego</h3>
+            <p>Mère</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="family-section">
+      <h2>Grands-parents</h2>
+
+      <div class="grid">
+        <a class="person" href="henrik.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Henrik.png" alt="Henrik Stormvald" loading="lazy">
+          <div class="person-info">
+            <h3>Henrik Stormvald</h3>
+            <p>Grand-père paternel</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="person" href="alice.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Alice.png" alt="Alice KallStröm" loading="lazy">
+          <div class="person-info">
+            <h3>Alice KallStröm</h3>
+            <p>Grand-mère paternelle</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="person" href="manuel.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Manuel.png" alt="Manuel Del Fuego" loading="lazy">
+          <div class="person-info">
+            <h3>Manuel Del Fuego</h3>
+            <p>Grand-père maternel</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="person" href="elisa.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Elisa.png" alt="Elisa Vulcani" loading="lazy">
+          <div class="person-info">
+            <h3>Elisa Vulcani</h3>
+            <p>Grand-mère maternelle</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="family-section">
+      <h2>Cousins</h2>
+
+      <div class="grid">
+        <a class="person" href="inga.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Inga.png" alt="Inga Stormvald" loading="lazy">
+          <div class="person-info">
+            <h3>Inga Stormvald</h3>
+            <p>Cousine</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="person" href="linus.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Linus.png" alt="Linus Stormvald" loading="lazy">
+          <div class="person-info">
+            <h3>Linus Stormvald</h3>
+            <p>Cousin</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="person" href="mateo.html">
+          <img src="https://raw.githubusercontent.com/Markus0975/img/main/Mateo.png" alt="Mateo Del Fuego" loading="lazy">
+          <div class="person-info">
+            <h3>Mateo Del Fuego</h3>
+            <p>Cousin</p>
+          </div>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </section>
+  </main>
 </body>
-
 </html>

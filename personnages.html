@@ -1,158 +1,231 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blue World — Personnages</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue World — Personnages</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+  <style>
+    :root {
+      --ink: #10213a;
+      --ink-soft: #38516d;
+      --gold: #c89d3d;
+      --paper: rgba(249, 246, 237, 0.94);
+    }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:#f5f7fb;
-    background:
-        linear-gradient(rgba(5,10,20,.78),rgba(5,10,20,.94)),
-        url("https://raw.githubusercontent.com/Markus0975/img/main/map.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-header{
-    padding:70px 20px 35px;
-    text-align:center;
-}
+    html {
+      min-height: 100%;
+    }
 
-h1{
-    font-size:clamp(2.6rem,6vw,4rem);
-    letter-spacing:3px;
-    text-transform:uppercase;
-}
+    body {
+      min-height: 100%;
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        linear-gradient(rgba(249, 246, 237, 0.91), rgba(249, 246, 237, 0.91)),
+        url("map.jpg") center / cover fixed no-repeat;
+    }
 
-.subtitle{
-    margin-top:12px;
-    color:#d8e6ff;
-}
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: clamp(22px, 4vw, 58px);
+    }
 
-nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    padding:18px;
-    background:rgba(0,0,0,.35);
-    backdrop-filter:blur(8px);
-}
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+    }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:10px 16px;
-    border-radius:999px;
-    background:rgba(255,255,255,.12);
-}
+    .rule {
+      width: min(370px, 75%);
+      height: 2px;
+      margin: 18px auto 16px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+      );
+    }
 
-nav a:hover{
-    background:#2f9cff;
-}
+    .intro {
+      max-width: 720px;
+      margin: 0 auto 38px;
+      color: var(--ink-soft);
+      font-size: clamp(1rem, 1.8vw, 1.16rem);
+      line-height: 1.55;
+      text-align: center;
+    }
 
-main{
-    max-width:900px;
-    margin:50px auto;
-    padding:0 20px;
-}
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(16px, 2.5vw, 28px);
+    }
 
-.list{
-    background:rgba(14,22,38,.88);
-    border-radius:22px;
-    overflow:hidden;
-    border:1px solid rgba(255,255,255,.10);
-}
+    .category-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 185px;
+      padding: clamp(22px, 3vw, 34px);
+      overflow: hidden;
+      color: #fff;
+      text-decoration: none;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(13, 31, 55, 0.93),
+          rgba(27, 60, 94, 0.82)
+        );
+      border: 1px solid rgba(200, 157, 61, 0.52);
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(10, 23, 45, 0.2);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
 
-.item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    text-decoration:none;
-    color:white;
-    padding:24px 28px;
-    font-size:1.2rem;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    transition:.2s;
-}
+    .category-card::after {
+      position: absolute;
+      right: -22px;
+      bottom: -42px;
+      width: 145px;
+      height: 145px;
+      content: "";
+      background: radial-gradient(
+        circle,
+        rgba(240, 214, 130, 0.22),
+        rgba(240, 214, 130, 0)
+      );
+      pointer-events: none;
+    }
 
-.item:last-child{
-    border-bottom:none;
-}
+    .category-card:hover,
+    .category-card:focus-visible {
+      border-color: #f0d682;
+      box-shadow: 0 14px 32px rgba(10, 23, 45, 0.34);
+      outline: none;
+      transform: translateY(-5px);
+    }
 
-.item:hover{
-    background:rgba(255,255,255,.08);
-}
+    .category-title {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 10px;
+      color: #fff4c9;
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.035em;
+      line-height: 1.1;
+    }
 
-.arrow{
-    color:#7fd6ff;
-    font-size:1.4rem;
-}
-</style>
+    .category-description {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
 
+    .arrow {
+      position: absolute;
+      right: 25px;
+      bottom: 19px;
+      z-index: 1;
+      color: #f0d682;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 24px 14px 32px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .category-card {
+        min-height: 150px;
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
+    <h1>Personnages</h1>
 
-<header>
+    <div class="rule"></div>
 
-<h1>Personnages</h1>
-<p class="subtitle">Blue World</p>
+    <p class="intro">
+      Découvrez les familles, les éveillés, les compagnons élémentaires
+      et les professeurs de Blue World.
+    </p>
 
-</header>
+    <section class="category-grid" aria-label="Catégories de personnages">
 
-<nav>
-<a href="index.html">Accueil</a>
-<a href="personnages.html">Personnages</a>
-<a href="monde.html">Monde</a>
-<a href="magie.html">Magie</a>
-<a href="academie.html">Académie</a>
-<a href="bestiaire.html">Bestiaire</a>
-<a href="cartes.html">Cartes</a>
-</nav>
+      <a class="category-card" href="famille.html">
+        <h2 class="category-title">Famille</h2>
+        <p class="category-description">
+          La famille Stormvald et les proches de Markus.
+        </p>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
 
-<main>
+      <a class="category-card" href="eveilles.html">
+        <h2 class="category-title">Éveillés</h2>
+        <p class="category-description">
+          Les treize éveillés et leurs parcours.
+        </p>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
 
-<div class="list">
+      <a class="category-card" href="elementaires.html">
+        <h2 class="category-title">Élémentaires</h2>
+        <p class="category-description">
+          Les compagnons liés aux éléments et leurs porteurs.
+        </p>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
 
-<a class="item" href="famille.html">
-<span>Famille de Markus</span>
-<span class="arrow">›</span>
-</a>
+      <a class="category-card" href="professeurs.html">
+        <h2 class="category-title">Professeurs</h2>
+        <p class="category-description">
+          Les enseignants de l’école primaire et de l’Académie.
+        </p>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
 
-<a class="item" href="amis.html">
-<span>Amis</span>
-<span class="arrow">›</span>
-</a>
+      <a class="category-card" href="lieux.html">
+        <h2 class="category-title">Lieux</h2>
+        <p class="category-description">
+          Palais, territoires et lieux majeurs de Blue World.
+        </p>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
 
-<a class="item" href="eveilles.html">
-<span>Éveillés</span>
-<span class="arrow">›</span>
-</a>
-
-<a class="item" href="elementaires.html">
-<span>Élémentaires</span>
-<span class="arrow">›</span>
-</a>
-
-<a class="item" href="professeurs.html">
-<span>Professeurs</span>
-<span class="arrow">›</span>
-</a>
-
-</div>
-
-</main>
-
+    </section>
+  </main>
 </body>
 </html>
