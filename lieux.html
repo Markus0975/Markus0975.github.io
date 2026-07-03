@@ -4,15 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blue World — Lieux</title>
+
   <style>
     :root {
       --ink: #10213a;
-      --ink-soft: #27435f;
       --gold: #c89d3d;
       --paper: rgba(249, 246, 237, 0.94);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       min-height: 100%;
@@ -35,9 +37,39 @@
       padding: clamp(18px, 3vw, 42px);
     }
 
+    .continent-section {
+      margin-bottom: clamp(30px, 4vw, 46px);
+    }
+
+    .continent-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .continent-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: clamp(1.45rem, 2.6vw, 2rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .continent-section h2::after {
+      flex: 1;
+      height: 1px;
+      content: "";
+      background: linear-gradient(
+        90deg,
+        rgba(200, 157, 61, 0.9),
+        rgba(200, 157, 61, 0)
+      );
+    }
+
     .palace-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(14px, 2vw, 24px);
     }
 
@@ -52,7 +84,10 @@
       border-radius: 12px;
       box-shadow: 0 6px 18px rgba(10, 23, 45, 0.16);
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .palace-card:hover,
@@ -110,7 +145,9 @@
       background: rgba(3, 8, 16, 0.95);
     }
 
-    .lightbox.open { display: flex; }
+    .lightbox.open {
+      display: flex;
+    }
 
     .lightbox-figure {
       display: flex;
@@ -169,8 +206,13 @@
       transform: translateY(-50%);
     }
 
-    .lightbox-prev { left: 18px; }
-    .lightbox-next { right: 18px; }
+    .lightbox-prev {
+      left: 18px;
+    }
+
+    .lightbox-next {
+      right: 18px;
+    }
 
     .lightbox-close:hover,
     .lightbox-close:focus-visible,
@@ -181,7 +223,17 @@
       outline: none;
     }
 
+    @media (max-width: 850px) {
+      .palace-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 600px) {
+      .page {
+        padding: 18px 12px 30px;
+      }
+
       .palace-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
@@ -193,7 +245,9 @@
         font-size: 0.85rem;
       }
 
-      .zoom-icon { display: none; }
+      .zoom-icon {
+        display: none;
+      }
 
       .lightbox-arrow {
         width: 39px;
@@ -201,96 +255,162 @@
         font-size: 2.2rem;
       }
 
-      .lightbox-prev { left: 8px; }
-      .lightbox-next { right: 8px; }
+      .lightbox-prev {
+        left: 8px;
+      }
+
+      .lightbox-next {
+        right: 8px;
+      }
     }
   </style>
 </head>
+
 <body>
   <main class="page">
-    <section class="palace-grid" aria-label="Galerie des palais">
 
-      <button class="palace-card" type="button"
-        data-image="palaisedric.png"
-        data-title="Palais Ouest Nord"
-        aria-label="Ouvrir Palais Ouest Nord">
-        <img src="palaisedric.png" alt="Palais Ouest Nord" loading="lazy">
-        <span class="card-label">Palais Ouest Nord <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
+    <section class="continent-section">
+      <h2>Nord</h2>
 
-      <button class="palace-card" type="button"
-        data-image="palaisarthur.png"
-        data-title="Palais Ouest Centre"
-        aria-label="Ouvrir Palais Ouest Centre">
-        <img src="palaisarthur.png" alt="Palais Ouest Centre" loading="lazy">
-        <span class="card-label">Palais Ouest Centre <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
+      <div class="palace-grid">
 
-      <button class="palace-card" type="button"
-        data-image="palaiselisa.png"
-        data-title="Palais Ouest Sud"
-        aria-label="Ouvrir Palais Ouest Sud">
-        <img src="palaiselisa.png" alt="Palais Ouest Sud" loading="lazy">
-        <span class="card-label">Palais Ouest Sud <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
+        <button class="palace-card" type="button"
+          data-image="palaissoren.png"
+          data-title="Palais Skarsen"
+          aria-label="Ouvrir Palais Skarsen">
+          <img src="palaissoren.png" alt="Palais Skarsen" loading="lazy">
+          <span class="card-label">
+            Palais Skarsen
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
 
-      <button class="palace-card" type="button"
-        data-image="palaisest.png"
-        data-title="Palais Est"
-        aria-label="Ouvrir Palais Est">
-        <img src="palaisest.png" alt="Palais Est" loading="lazy">
-        <span class="card-label">Palais Est <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
+        <button class="palace-card" type="button"
+          data-image="palaisolga.png"
+          data-title="Palais Halvorsen"
+          aria-label="Ouvrir Palais Halvorsen">
+          <img src="palaisolga.png" alt="Palais Halvorsen" loading="lazy">
+          <span class="card-label">
+            Palais Halvorsen
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
 
-      <button class="palace-card" type="button"
-        data-image="palaiselfe.png"
-        data-title="Palais Elfe"
-        aria-label="Ouvrir Palais Elfe">
-        <img src="palaiselfe.png" alt="Palais Elfe" loading="lazy">
-        <span class="card-label">Palais Elfe <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
+        <button class="palace-card" type="button"
+          data-image="palaisnord.png"
+          data-title="Palais du Nord"
+          aria-label="Ouvrir Palais du Nord">
+          <img src="palaisnord.png" alt="Palais du Nord" loading="lazy">
+          <span class="card-label">
+            Palais du Nord
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
 
-      <button class="palace-card" type="button"
-        data-image="palaiszahra.png"
-        data-title="Palais Cherifa"
-        aria-label="Ouvrir Palais Cherifa">
-        <img src="palaiszahra.png" alt="Palais Cherifa" loading="lazy">
-        <span class="card-label">Palais Cherifa <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
-
-      <button class="palace-card" type="button"
-        data-image="palaissoren.png"
-        data-title="Palais Skarsen"
-        aria-label="Ouvrir Palais Skarsen">
-        <img src="palaissoren.png" alt="Palais Skarsen" loading="lazy">
-        <span class="card-label">Palais Skarsen <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
-
-      <button class="palace-card" type="button"
-        data-image="palaisolga.png"
-        data-title="Palais Halvorsen"
-        aria-label="Ouvrir Palais Halvorsen">
-        <img src="palaisolga.png" alt="Palais Halvorsen" loading="lazy">
-        <span class="card-label">Palais Halvorsen <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
-
-      <button class="palace-card" type="button"
-        data-image="palaisnord.png"
-        data-title="Palais du Nord"
-        aria-label="Ouvrir Palais du Nord">
-        <img src="palaisnord.png" alt="Palais du Nord" loading="lazy">
-        <span class="card-label">Palais du Nord <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
-
-      <button class="palace-card" type="button"
-        data-image="palaisdiego.png"
-        data-title="Palais Diego"
-        aria-label="Ouvrir Palais Diego">
-        <img src="palaisdiego.png" alt="Palais Diego" loading="lazy">
-        <span class="card-label">Palais Diego <span class="zoom-icon" aria-hidden="true">⤢</span></span>
-      </button>
-
+      </div>
     </section>
+
+    <section class="continent-section">
+      <h2>Ouest</h2>
+
+      <div class="palace-grid">
+
+        <button class="palace-card" type="button"
+          data-image="palaisedric.png"
+          data-title="Palais Ouest Nord"
+          aria-label="Ouvrir Palais Ouest Nord">
+          <img src="palaisedric.png" alt="Palais Ouest Nord" loading="lazy">
+          <span class="card-label">
+            Palais Ouest Nord
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
+
+        <button class="palace-card" type="button"
+          data-image="palaisarthur.png"
+          data-title="Palais Ouest Centre"
+          aria-label="Ouvrir Palais Ouest Centre">
+          <img src="palaisarthur.png" alt="Palais Ouest Centre" loading="lazy">
+          <span class="card-label">
+            Palais Ouest Centre
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
+
+        <button class="palace-card" type="button"
+          data-image="palaiselisa.png"
+          data-title="Palais Ouest Sud"
+          aria-label="Ouvrir Palais Ouest Sud">
+          <img src="palaiselisa.png" alt="Palais Ouest Sud" loading="lazy">
+          <span class="card-label">
+            Palais Ouest Sud
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+    <section class="continent-section">
+      <h2>Sud</h2>
+
+      <div class="palace-grid">
+
+        <button class="palace-card" type="button"
+          data-image="palaiszahra.png"
+          data-title="Palais Cherifa"
+          aria-label="Ouvrir Palais Cherifa">
+          <img src="palaiszahra.png" alt="Palais Cherifa" loading="lazy">
+          <span class="card-label">
+            Palais Cherifa
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
+
+        <button class="palace-card" type="button"
+          data-image="palaisdiego.png"
+          data-title="Palais Diego"
+          aria-label="Ouvrir Palais Diego">
+          <img src="palaisdiego.png" alt="Palais Diego" loading="lazy">
+          <span class="card-label">
+            Palais Diego
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+    <section class="continent-section">
+      <h2>Est</h2>
+
+      <div class="palace-grid">
+
+        <button class="palace-card" type="button"
+          data-image="palaisest.png"
+          data-title="Palais Est"
+          aria-label="Ouvrir Palais Est">
+          <img src="palaisest.png" alt="Palais Est" loading="lazy">
+          <span class="card-label">
+            Palais Est
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
+
+        <button class="palace-card" type="button"
+          data-image="palaiselfe.png"
+          data-title="Palais Elfe"
+          aria-label="Ouvrir Palais Elfe">
+          <img src="palaiselfe.png" alt="Palais Elfe" loading="lazy">
+          <span class="card-label">
+            Palais Elfe
+            <span class="zoom-icon" aria-hidden="true">⤢</span>
+          </span>
+        </button>
+
+      </div>
+    </section>
+
   </main>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -318,6 +438,7 @@
 
     function showImage(index) {
       currentIndex = (index + cards.length) % cards.length;
+
       const card = cards[currentIndex];
       const title = card.dataset.title;
 
@@ -346,11 +467,19 @@
     });
 
     closeButton.addEventListener("click", closeLightbox);
-    previousButton.addEventListener("click", () => showImage(currentIndex - 1));
-    nextButton.addEventListener("click", () => showImage(currentIndex + 1));
+
+    previousButton.addEventListener("click", () => {
+      showImage(currentIndex - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+      showImage(currentIndex + 1);
+    });
 
     lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) closeLightbox();
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
     });
 
     document.addEventListener("keydown", (event) => {
