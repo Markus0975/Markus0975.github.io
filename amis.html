@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue World — Amis</title>
+
+  <style>
+    :root {
+      --ink: #10213a;
+      --ink-soft: #38516d;
+      --gold: #c89d3d;
+      --paper: rgba(249, 246, 237, 0.94);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        linear-gradient(rgba(249, 246, 237, 0.91), rgba(249, 246, 237, 0.91)),
+        url("https://raw.githubusercontent.com/Markus0975/img/main/map.jpg") center / cover fixed no-repeat;
+    }
+
+    .page {
+      width: min(1450px, 100%);
+      margin: 0 auto;
+      padding: clamp(20px, 3vw, 42px);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .rule {
+      width: min(300px, 72%);
+      height: 2px;
+      margin: 16px auto 14px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+      );
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: clamp(14px, 2vw, 22px);
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+      padding: 13px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(16, 33, 58, 0.2);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(10, 23, 45, 0.16);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .person:hover {
+      border-color: var(--gold);
+      box-shadow: 0 11px 28px rgba(10, 23, 45, 0.28);
+      transform: translateY(-4px);
+    }
+
+    .person img {
+      display: block;
+      flex: 0 0 auto;
+      width: 90px;
+      height: 112px;
+      object-fit: cover;
+      background: #d9e0e9;
+      border: 1px solid rgba(16, 33, 58, 0.12);
+      border-radius: 9px;
+    }
+
+    .person-info {
+      min-width: 0;
+    }
+
+    .person h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.14rem;
+      line-height: 1.18;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px 12px 30px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .person {
+        gap: 12px;
+        padding: 10px;
+      }
+
+      .person img {
+        width: 78px;
+        height: 98px;
+      }
+
+      .person h2 {
+        font-size: 1.03rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <h1>Amis</h1>
+
+    <div class="rule"></div>
+
+    <p class="intro">
+      Les amis de Markus et Liora, hors famille et hors éveillés.
+    </p>
+
+    <section class="grid" aria-label="Amis">
+
+      <article class="person">
+        <img
+          src="https://raw.githubusercontent.com/Markus0975/img/main/Paul.png"
+          alt="Paul Vale"
+          loading="lazy"
+        >
+        <div class="person-info">
+          <h2>Paul Vale</h2>
+        </div>
+      </article>
+
+      <article class="person">
+        <img
+          src="https://raw.githubusercontent.com/Markus0975/img/main/Iris.png"
+          alt="Iris Vale"
+          loading="lazy"
+        >
+        <div class="person-info">
+          <h2>Iris Vale</h2>
+        </div>
+      </article>
+
+      <article class="person">
+        <img
+          src="https://raw.githubusercontent.com/Markus0975/img/main/Remi.png"
+          alt="Rémi Durand"
+          loading="lazy"
+        >
+        <div class="person-info">
+          <h2>Rémi Durand</h2>
+        </div>
+      </article>
+
+      <article class="person">
+        <img
+          src="https://raw.githubusercontent.com/Markus0975/img/main/Hiro.png"
+          alt="Hiro Kazehito"
+          loading="lazy"
+        >
+        <div class="person-info">
+          <h2>Hiro Kazehito</h2>
+        </div>
+      </article>
+
+      <article class="person">
+        <img
+          src="https://raw.githubusercontent.com/Markus0975/img/main/Rin.png"
+          alt="Rin Oukikaze"
+          loading="lazy"
+        >
+        <div class="person-info">
+          <h2>Rin Oukikaze</h2>
+        </div>
+      </article>
+
+      <article class="person">
+        <img
+          src="https://raw.githubusercontent.com/Markus0975/img/main/Lina.png"
+          alt="Lina Fröst"
+          loading="lazy"
+        >
+        <div class="person-info">
+          <h2>Lina Fröst</h2>
+        </div>
+      </article>
+
+      <article class="person">
+        <img
+          src="https://raw.githubusercontent.com/Markus0975/img/main/Daan.png"
+          alt="Daan Dustorm"
+          loading="lazy"
+        >
+        <div class="person-info">
+          <h2>Daan Dustorm</h2>
+        </div>
+      </article>
+
+    </section>
+  </main>
+</body>
+</html>
